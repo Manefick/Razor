@@ -12,15 +12,14 @@ namespace Razor.Controllers
         public ViewResult Index()
         {
             //Why do we fill in manually and do not create a constructor and do not fill through it
-            Product myproduct = new Product
+            Product[] products =
             {
-                ProductId = 1,
-                Name = "Kayak",
-                Description = "А boat for one person",
-                Category = "Watersports",
-                Price = 275M
+                new Product {Name = "Kayak", Price= 275 },
+                new Product {Name="Lifejacket", Price = 275M},
+                new Product {Name ="Ball", Price=55M},
+                new Product{Name = "flag", Price= 34.5M}
             };
-            return View(myproduct);
+            return View(products);
         }
     }
 }

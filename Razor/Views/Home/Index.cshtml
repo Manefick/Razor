@@ -1,12 +1,17 @@
-﻿@model Product
+﻿@model IEnumerable<Product>
 @{
     ViewBag.Title = "Product Name";
 }
 
-<p>Product Name = @Model.Name</p>
+@foreach (Product product in Model.OrderBy(x=>x.Price))
+{
+    <p>Name: @product.Name, Price: @($"{ product.Price:c2}")</p>
+}
+
+@*<p>Product Name = @Model.Name</p>
 <p>Product Price =@($"{Model.Price}") </p>
 @if (Model.ProductId == 1)
 {
     @:Id = 1
     <p>@Model.Description</p>
-}
+}*@
